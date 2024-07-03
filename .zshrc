@@ -18,8 +18,17 @@ alias rl="source ~/.zshrc"
 # Reload .zshrc and commit changes
 alias rlw="git-commit-devx && source ~/.zshrc"
 
+# Create a new branch
 alias gtc='gt-create'
+# Create a new branch and submit a PR
 alias gtcs='gt-create-and-submit'
+alias st='gt status'
+alias di='gt diff'
+alias co='gt checkout'
+alias mo='gt move'
+alias br='gt branch'
+alias ss='gt submit'
+
 
 alias devx="cursor ~/code/personal/devx/.zshrc"
 alias web="cursor ~/code/ldt/web"
