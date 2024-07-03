@@ -18,6 +18,10 @@ alias t="yarn test"
 # Run tests in watch mode
 alias tt="yarn test -t"
 
+
+# =====================
+# === MANAGE .ZSHRC ===
+# =====================
 # Reload .zshrc
 alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
