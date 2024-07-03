@@ -29,7 +29,9 @@ alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
 alias rlw="source ~/.zshrc && git-commit-devx-with-generated-message"
 
-
+# ==========================
+# === GRAPHITE SHORTCUTS ===
+# ==========================
 # Create a new branch
 alias gtc='gt-create'
 # Create a new branch and submit a PR
