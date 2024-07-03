@@ -40,7 +40,7 @@ alias br='gt branch'
 alias ss='gt submit'
 
 
-alias devx="cursor ~/code/personal/devx/.zshrc"
+alias devx="cursor ~/code/personal/devx/."
 alias web="cursor ~/code/ldt/web"
 alias backend="cursor ~/code/ldt/backend"
 alias remind="cursor ~/code/personal/remind-me"
