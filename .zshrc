@@ -17,8 +17,9 @@ alias rs-dev="git fetch origin && git checkout dev && git reset --hard origin/ma
 alias t="yarn test"
 # Run tests in watch mode
 alias tt="yarn test -t"
+
 # Reload .zshrc
-alias rl="source ~/.zshrc"
+alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
 alias rlw="git-commit-devx-with-generated-message && source ~/.zshrc"
 
@@ -78,7 +79,7 @@ function generate-commit-message() {
                 },
                 {
                     "role": "user",
-                    "content": ("Generate a commit message for the following changes:\n" + $message)
+                    "content": ("Generate a commit message for the following git diff:\n\n\n" + $message)
                 }
             ]
         }')
