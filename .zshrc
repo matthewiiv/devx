@@ -9,9 +9,13 @@ alias drd="nvm use; doppler run -c dev -- yarn dev"
 alias drp="nvm use; doppler run -c prod -- yarn dev"
 alias dsqs="nvm use; doppler run -- yarn sqs"
 
-alias checkout-main="git checkout main; git pull origin main; nvm use; yarn"
-alias reset-dev="git fetch origin && git checkout dev && git reset --hard origin/main"
+# Checkout main and pull
+alias co-main="git checkout main; git pull origin main; nvm use; yarn"
+# Reset dev to main
+alias rs-dev="git fetch origin && git checkout dev && git reset --hard origin/main"
+# Run tests
 alias t="yarn test"
+# Run tests in watch mode
 alias tt="yarn test -t"
 # Reload .zshrc
 alias rl="source ~/.zshrc"
