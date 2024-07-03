@@ -32,6 +32,7 @@ alias rlw="git-commit-devx-with-generated-message && source ~/.zshrc"
 alias gtc='gt-create'
 # Create a new branch and submit a PR
 alias gtcs='gt-create-and-submit'
+alias sc='gt sync'
 alias st='gt status'
 alias di='gt diff'
 alias co='gt checkout'
