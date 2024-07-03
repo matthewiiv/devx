@@ -25,7 +25,7 @@ alias tt="yarn test -t"
 # Reload .zshrc
 alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
-alias rlw="git-commit-devx-with-generated-message && source ~/.zshrc"
+alias rlw="source ~/.zshrc && git-commit-devx-with-generated-message"
 
 
 # Create a new branch
@@ -99,6 +99,9 @@ function generate-commit-message() {
 }
 
 function git-commit-devx-with-generated-message() {
+    local current_dir="$PWD"
+    cd ~/code/personal/devx  # Change to the directory of the file
+
     generate-commit-message
 
     echo -e "\033[0;32m$COMMIT_MESSAGE\033[0m"
@@ -117,6 +120,7 @@ function git-commit-devx-with-generated-message() {
             ;;
     esac
 
+    cd "$current_dir"
 }
 
 
