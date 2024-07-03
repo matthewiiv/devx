@@ -4,6 +4,8 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+alias ds="doppler setup"
+alias drl="nvm use; doppler run -- yarn dev"
 alias drs="nvm use; doppler run -c staging -- yarn dev"
 alias drd="nvm use; doppler run -c dev -- yarn dev"
 alias drp="nvm use; doppler run -c prod -- yarn dev"
