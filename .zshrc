@@ -19,8 +19,9 @@ alias t="yarn test"
 alias tt="yarn test -t"
 # Reload .zshrc
 alias rl="source ~/.zshrc"
-# Reload .zshrc and commit changes
-alias rlw="git-commit-devx && source ~/.zshrc"
+# Reload .zshrc and commit changes with a generated message
+alias rlw="git-commit-devx-with-generated-message && source ~/.zshrc"
+
 
 # Create a new branch
 alias gtc='gt-create'
@@ -59,20 +60,68 @@ alias pm='git-push-main'
 # Add all filess
 alias aa='git add .'
 
+function generate-commit-message() {
+    # Your OpenAI API key stored in an environment variable
+    API_KEY=$OPENAI_API_KEY
+
+    # The diff you want to send to the API
+    DIFF_CONTENT=$(git diff)
+
+    # PAYLOAD=$(jq -n --arg diff_content "$DIFF_content" '{name: "OpenAI", type: $diff_content}')
+    PAYLOAD=$(jq -n --arg message "$DIFF_CONTENT" '{
+            "model": "gpt-3.5-turbo",
+            "max_tokens": 50,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant that writes short commit messages no more than 30 words long."
+                },
+                {
+                    "role": "user",
+                    "content": ("Generate a commit message for the following changes:\n" + $message)
+                }
+            ]
+        }')
+
+    RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $OPENAI_API_KEY" \
+        -d $PAYLOAD)
+
+    # Extract the text from the response
+    COMMIT_MESSAGE=$(echo $RESPONSE | jq -r  '.choices[0].message.content')
+}
+
+function git-commit-devx-with-generated-message() {
+    generate-commit-message
+
+    echo -e "\033[0;32m$COMMIT_MESSAGE\033[0m"
+    echo "Do you want to use this commit message? (y/n):"
+    read user_choice
+    e
+    case $user_choice in
+        y)
+            git-commit-devx "$COMMIT_MESSAGE"
+            ;;
+        n)
+            git-commit-devx
+            ;;
+        *)
+            echo "Invalid option. Please try again."
+            ;;
+    esac
+
+}
+
+
 function git-commit-devx() {
     local current_dir="$PWD"         # Store the current directory
-    # local message="$*"
-
-    # if [ -z "$message" ]; then
-    #     echo "Commit message is required."
-    #     return 1
-    # fi
-
+    local message="${1:-automated commit message}"  # Use the first argument as the commit message, default to 'default commit message'
+    echo "Commit message: $message"
     cd ~/code/personal/devx  # Change to the directory of the file
 
     git add .                         # Add all files to staging
-    # git commit -m "$message"
-    git commit -m "automated commit message"
+    git commit -m "$message"          # Commit with the provided or default message
     git push                          # Push changes to remote repository
 
     cd "$current_dir"                # Return to the original directory
@@ -177,3 +226,6 @@ unset __conda_setup
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# Add secrets
+source ~/code/personal/devx/.env
