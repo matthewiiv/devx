@@ -13,27 +13,10 @@ alias checkout-main="git checkout main; git pull origin main; nvm use; yarn"
 alias reset-dev="git fetch origin && git checkout dev && git reset --hard origin/main"
 alias t="yarn test"
 alias tt="yarn test -t"
+# Reload .zshrc
 alias rl="source ~/.zshrc"
+# Reload .zshrc and commit changes
 alias rlw="git-commit-devx && source ~/.zshrc"
-
-function git-commit-devx() {
-    local current_dir="$PWD"         # Store the current directory
-    # local message="$*"
-
-    # if [ -z "$message" ]; then
-    #     echo "Commit message is required."
-    #     return 1
-    # fi
-
-    cd ~/code/personal/devx  # Change to the directory of the file
-
-    git add .                         # Add all files to staging
-    # git commit -m "$message"
-    git commit -m "automated commit message"
-    git push                          # Push changes to remote repository
-
-    cd "$current_dir"                # Return to the original directory
-}
 
 alias gtc='gt-create'
 alias gtcs='gt-create-and-submit'
@@ -62,6 +45,25 @@ alias pm='git-push-main'
 
 # Add all filess
 alias aa='git add .'
+
+function git-commit-devx() {
+    local current_dir="$PWD"         # Store the current directory
+    # local message="$*"
+
+    # if [ -z "$message" ]; then
+    #     echo "Commit message is required."
+    #     return 1
+    # fi
+
+    cd ~/code/personal/devx  # Change to the directory of the file
+
+    git add .                         # Add all files to staging
+    # git commit -m "$message"
+    git commit -m "automated commit message"
+    git push                          # Push changes to remote repository
+
+    cd "$current_dir"                # Return to the original directory
+}
 
 # Add new commit with type and message
 function git-commit() {
