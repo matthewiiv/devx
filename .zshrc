@@ -45,6 +45,7 @@ alias co='gt checkout'
 alias mo='gt move'
 alias br='gt branch'
 alias ss='gt submit'
+alias trunk="gt checkout main"
 
 alias sd='summarise-diff'
 
