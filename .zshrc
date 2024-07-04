@@ -28,6 +28,8 @@ alias tt="yarn test -t"
 alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
 alias rlw="source ~/.zshrc && git-commit-devx-with-generated-message"
+# List all custom aliases
+alias la='list_custom_aliases'
 
 # ==========================
 # === GRAPHITE SHORTCUTS ===
@@ -70,6 +72,16 @@ alias pm='git-push-main'
 
 # Add all filess
 alias aa='git add .'
+
+
+function list_custom_aliases() {
+    # Print the header
+    echo "Listing all custom aliases in .zshrc:"
+    echo "------------------------------------"
+    
+    # Use grep to find lines containing 'alias', then awk to extract and print the alias name and command
+    grep '^alias' ~/.zshrc | awk -F'=' '{print $1 " -> " substr($0, index($0,$2))}'
+}
 
 function generate-commit-message() {
     # Your OpenAI API key stored in an environment variable
