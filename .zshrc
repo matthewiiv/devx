@@ -44,6 +44,7 @@ alias mo='gt move'
 alias br='gt branch'
 alias ss='gt submit'
 
+alias sd='summarise-diff'
 
 alias devx="cursor ~/code/personal/devx/."
 alias web="cursor ~/code/ldt/web"
@@ -100,6 +101,11 @@ function generate-commit-message() {
 
     # Extract the text from the response
     COMMIT_MESSAGE=$(echo $RESPONSE | jq -r  '.choices[0].message.content')
+}
+
+function summarise-diff() {
+    generate-commit-message
+    echo -e "\033[0;32m$COMMIT_MESSAGE\033[0m"
 }
 
 function git-commit-devx-with-generated-message() {
