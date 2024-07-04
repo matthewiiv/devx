@@ -46,6 +46,7 @@ alias md='gt modify'
 alias mo='gt move'
 alias br='gt branch'
 alias ss='gt submit'
+alias ams='gt add . && gt modify && gt submit'
 alias trunk="gt checkout main"
 
 alias sd='summarise-diff'
