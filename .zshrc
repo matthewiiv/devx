@@ -39,6 +39,7 @@ alias gtc='gt-create'
 # Create a new branch and submit a PR
 alias gtcs='gt-create-and-submit'
 alias sc='gt sync'
+alias lg='gt ls'
 alias st='gt status'
 alias di='gt diff'
 alias co='gt checkout'
