@@ -57,7 +57,7 @@ alias web="cursor ~/code/ldt/web"
 alias backend="cursor ~/code/ldt/backend"
 alias remind="cursor ~/code/personal/remind-me"
 alias personal="cursor ~/code/personal/personal-site"
-alias personal="cursor ~/code/personal/shared"
+alias shared="cursor ~/code/personal/shared"
 alias dev="nvm use; yarn dev"
 
 # Aliases for different conventional commit types
