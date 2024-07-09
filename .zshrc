@@ -57,6 +57,7 @@ alias web="cursor ~/code/ldt/web"
 alias backend="cursor ~/code/ldt/backend"
 alias remind="cursor ~/code/personal/remind-me"
 alias personal="cursor ~/code/personal/personal-site"
+alias personal="cursor ~/code/personal/shared"
 alias dev="nvm use; yarn dev"
 
 # Aliases for different conventional commit types
@@ -260,8 +261,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
 # Add secrets
 source ~/code/personal/devx/.env
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
