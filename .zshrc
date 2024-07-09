@@ -52,6 +52,9 @@ alias trunk="gt checkout main"
 
 alias sd='summarise-diff'
 
+# ============================
+# === REPOSITORY SHORTCUTS ===
+# ============================
 alias devx="cursor ~/code/personal/devx/."
 alias web="cursor ~/code/ldt/web"
 alias backend="cursor ~/code/ldt/backend"
