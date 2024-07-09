@@ -58,9 +58,9 @@ alias sd='summarise-diff'
 alias devx="cursor ~/code/personal/devx/."
 alias web="cursor ~/code/ldt/web"
 alias backend="cursor ~/code/ldt/backend"
+alias shared="cursor ~/code/ldt/shared"
 alias remind="cursor ~/code/personal/remind-me"
 alias personal="cursor ~/code/personal/personal-site"
-alias shared="cursor ~/code/personal/shared"
 alias dev="nvm use; yarn dev"
 
 # Aliases for different conventional commit types
