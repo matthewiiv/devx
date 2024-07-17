@@ -19,6 +19,8 @@ alias rs-dev="git fetch origin && git checkout dev && git reset --hard origin/ma
 alias t="yarn test"
 # Run tests in watch mode
 alias tt="yarn test -t"
+# Generate types
+alias gen="nvm use; yarn gen"
 
 
 # =====================
