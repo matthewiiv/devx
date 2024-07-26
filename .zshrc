@@ -52,6 +52,8 @@ alias ss='gt ss'
 alias ams='gt add . && gt modify && gt sync && gt ss'
 alias scs='sc && ss'
 alias trunk="gt checkout main"
+alias d='gt down'
+alias u='gt up'
 
 alias sd='summarise-diff'
 
