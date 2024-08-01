@@ -21,6 +21,8 @@ alias t="yarn test"
 alias tt="yarn test -t"
 # Generate types
 alias gen="nvm use; yarn gen"
+# Nvm use
+alias use="nvm use"
 
 
 # =====================
@@ -53,8 +55,8 @@ alias ams='gt add . && gt modify && gt sync && gt ss'
 alias am='gt add . && gt modify && gt sync'
 alias scs='sc && ss'
 alias trunk="gt checkout main"
-alias d='gt down'
 alias u='gt up'
+alias d='gt down'
 
 alias sd='summarise-diff'
 
