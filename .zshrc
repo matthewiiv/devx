@@ -57,6 +57,8 @@ alias scs='sc && ss'
 alias trunk="gt checkout main"
 alias u='gt up'
 alias d='gt down'
+alias rs='gt add -A && gt continue'
+alias re='gt restack'
 
 alias sd='summarise-diff'
 
