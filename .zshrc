@@ -1,8 +1,10 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+
+# NVM
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias ds="doppler setup"
 alias drl="nvm use; doppler run -- yarn dev"
@@ -31,7 +33,7 @@ alias use="nvm use"
 # Reload .zshrc
 alias rl="source ~/.zshrc && echo 'Reloaded'"
 # Reload .zshrc and commit changes with a generated message
-alias rlw="source ~/.zshrc && git-commit-devx-with-generated-message"
+alias rlw="source ~/.zshrc && git_commit_devx_with_generated_message"
 # List all custom aliases
 alias la='list_custom_aliases'
 
@@ -39,9 +41,9 @@ alias la='list_custom_aliases'
 # === GRAPHITE SHORTCUTS ===
 # ==========================
 # Create a new branch
-alias gtc='gt-create'
+alias gtc='gt_create'
 # Create a new branch and submit a PR
-alias gtcs='gt-create-and-submit'
+alias gtcs='gt_create_and_submit'
 alias sc='gt sync'
 alias lg='gt ls'
 alias st='gt status'
@@ -60,7 +62,7 @@ alias d='gt down'
 alias ac='gt add -A && gt continue'
 alias re='gt restack'
 
-alias sd='summarise-diff'
+alias sd='summarise_diff'
 
 # ============================
 # === REPOSITORY SHORTCUTS ===
@@ -74,19 +76,19 @@ alias personal="cursor ~/code/personal/personal-site"
 alias dev="nvm use; yarn dev"
 
 # Aliases for different conventional commit types
-alias feat='git-commit feat'
-alias fix='git-commit fix'
-alias docs='git-commit docs'
-alias chore='git-commit chore'
-alias style='git-commit style'
-alias refactor='git-commit refactor'
-alias test='git-commit test'
+alias feat='git_commit feat'
+alias fix='git_commit fix'
+alias docs='git_commit docs'
+alias chore='git_commit chore'
+alias style='git_commit style'
+alias refactor='git_commit refactor'
+alias test='git_commit test'
 
 # Create a PR
-alias pr='git-pr'
+alias pr='git_pr'
 
 # Push to main
-alias pm='git-push-main'
+alias pm='git_push_main'
 
 # Add all filess
 alias aa='git add .'
@@ -133,12 +135,12 @@ function generate-commit-message() {
     COMMIT_MESSAGE=$(echo $RESPONSE | jq -r  '.choices[0].message.content')
 }
 
-function summarise-diff() {
+function summarise_diff() {
     generate-commit-message
     echo -e "\033[0;32m$COMMIT_MESSAGE\033[0m"
 }
 
-function git-commit-devx-with-generated-message() {
+function git_commit_devx_with_generated_message() {
     local current_dir="$PWD"
     cd ~/code/personal/devx  # Change to the directory of the file
 
@@ -150,10 +152,10 @@ function git-commit-devx-with-generated-message() {
     e
     case $user_choice in
         y)
-            git-commit-devx "$COMMIT_MESSAGE"
+            git_commit_devx "$COMMIT_MESSAGE"
             ;;
         n)
-            git-commit-devx
+            git_commit_devx
             ;;
         *)
             echo "Invalid option. Please try again."
@@ -164,7 +166,7 @@ function git-commit-devx-with-generated-message() {
 }
 
 
-function git-commit-devx() {
+function git_commit_devx() {
     local current_dir="$PWD"         # Store the current directory
     local message="${1:-automated commit message}"  # Use the first argument as the commit message, default to 'default commit message'
     echo "Commit message: $message"
@@ -178,7 +180,7 @@ function git-commit-devx() {
 }
 
 # Add new commit with type and message
-function git-commit() {
+function git_commit() {
     local branch=$(git symbolic-ref --short HEAD)
     local type=$1
     shift
@@ -198,7 +200,7 @@ function git-commit() {
 }
 
 # Function to push the current branch, create a pull request, and open it
-function git-pr() {
+function git_pr() {
     local current_branch=$(git symbolic-ref --short HEAD)
     
     # Prevent operation if on main or master branch
@@ -215,7 +217,7 @@ function git-pr() {
 }
 
 # Function to push the current branch, create a pull request, and open it
-function git-push-main() {
+function git_push_main() {
     local current_branch=$(git symbolic-ref --short HEAD)
     
     # Prevent operation if on main or master branch
@@ -228,7 +230,7 @@ function git-push-main() {
     git push -u origin main
 }
 
-function gt-create() {
+function gt_create() {
     local branch=$(git symbolic-ref --short HEAD)
     local type=$1
     shift
@@ -248,12 +250,12 @@ function gt-create() {
 }
 
 # Graphite
-function gt-create() {
+function gt_create() {
   local branch_name="$*"
   gt c -am "$branch_name"
 }
 
-function gt-create-and-submit() {
+function gt_create_and_submit() {
   local branch_name="$*"
   gt c -am "$branch_name"
   gt ss
@@ -279,3 +281,4 @@ source ~/code/personal/devx/.env
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
