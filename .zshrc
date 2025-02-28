@@ -20,6 +20,21 @@ alias drd="nvm use; doppler run -c dev -- yarn dev"
 alias drp="nvm use; doppler run -c prod -- yarn dev"
 alias dsqs="nvm use; doppler run -- yarn sqs"
 
+# Run containers from service directory
+containers() {
+    # Store current directory
+    local current_dir=$(pwd)
+    # Go up to backend directory
+    cd ../../
+    # Start SQS
+    doppler run -- yarn sqs &
+    # Return to service directory
+    cd "$current_dir"
+    # Start Redis and SQS
+    docker run -- yarn redis && doppler run -- yarn sqs
+}
+
+
 # Checkout main and pull
 alias co-main="git checkout main; git pull origin main; nvm use; yarn"
 # Reset dev to main
