@@ -31,7 +31,7 @@ containers() {
     # Return to service directory
     cd "$current_dir"
     # Start Redis and SQS
-    docker run -- yarn redis && doppler run -- yarn sqs
+    doppler run -- yarn redis && doppler run -- yarn sqs
 }
 
 
