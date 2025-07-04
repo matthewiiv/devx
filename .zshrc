@@ -115,6 +115,9 @@ alias pm='git_push_main'
 # Add all filess
 alias aa='git add .'
 
+# Change title of current iterm
+title () { printf '\e]1;%s\a' "$*"; }
+
 
 function list_custom_aliases() {
     # Print the header
@@ -312,3 +315,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Created by `pipx` on 2025-05-30 08:38:23
+export PATH="$PATH:/Users/matthew.sharp/.local/bin"
+export PATH=$PATH:$HOME/.maestro/bin
+
