@@ -14,6 +14,9 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[ttml]": {
+    "editor.defaultFormatter": "xuyuqiarichy.ttml-formatter"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
@@ -35,7 +38,11 @@
     "FIG_NEW_SESSION": "1"
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
   },
   "editor.stickyScroll.enabled": true,
   "eslint.workingDirectories": [],
@@ -50,5 +57,8 @@
   "i18n-ally.localesPaths": ["./messages"],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.sourceLanguage": "en-GB",
-  "i18n-ally.extract.keygenStrategy": "empty"
+  "i18n-ally.extract.keygenStrategy": "empty",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "update.releaseTrack": "prerelease",
+  "files.associations": { "*.mdc": "markdown" }
 }
