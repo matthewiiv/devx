@@ -115,6 +115,16 @@ alias pm='git_push_main'
 # Add all filess
 alias aa='git add .'
 
+# ========================
+# === CLAUDE SHORTCUTS ===
+# ========================
+# Claude "create issue" one-liner
+cci() {
+  # Everything you type after CCI becomes one string
+  local prompt="$*"
+  claude "/issues \"${prompt}\""
+}
+
 # Change title of current iterm
 title () { printf '\e]1;%s\a' "$*"; }
 
