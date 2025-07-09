@@ -1,0 +1,3 @@
+- Always use gt for source control
+- Never add comments to Linear, always just update the existing issue
+- Use `gt add .`, `gt modify` and `gt sumbit` commands when you have changes you want to commit to the current branch
