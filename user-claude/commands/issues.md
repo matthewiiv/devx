@@ -42,5 +42,6 @@ Additional notes:
 - Your final output should consist of only the content within the <linear_issue> tags, ready to be copied and pasted directly into Linear.
 - Assign either the label "bug" or "enhancement" based on the nature of the issue.
 - Do not add any comments.
+- If you have information about the designs from Figma or similar. Inlude as much of it as possible in the issue, because the agent building from it, will not have access to the Figma file.
 
 Remember to think through each step thoroughly before proceeding to the next. Use <scratchpad> tags to organize your thoughts if needed, but do not include these in your final output.
