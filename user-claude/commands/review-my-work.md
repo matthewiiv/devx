@@ -1,0 +1,1 @@
+Use a sub agent to review all of the code changes you have made. It should be brutal, and should give a review out of 10. Display it's report to the user, and then ask the user if they want to make any changes.
