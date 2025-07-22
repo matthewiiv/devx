@@ -28,6 +28,7 @@ Follow these steps to complete the task:
 
    - Once you have formulated your plan, draft the Linear issue content.
    - Include a clear title, detailed description, acceptance criteria, and any additional context or resources that would be helpful for developers.
+   - You must include everything needed to build the feature. Assume the developer building from the issue will not have access to anything other than the issue.
    - Use appropriate formatting (e.g., Markdown) to enhance readability.
    - Do not include information about timelines or estimates.
 
@@ -43,5 +44,6 @@ Additional notes:
 - Assign either the label "bug" or "enhancement" based on the nature of the issue.
 - Do not add any comments.
 - If you have information about the designs from Figma or similar. Inlude as much of it as possible in the issue, because the agent building from it, will not have access to the Figma file.
+- The person building from the issue will not have access to the original prompt or requirements. You must include everything needed to build the feature.
 
 Remember to think through each step thoroughly before proceeding to the next. Use <scratchpad> tags to organize your thoughts if needed, but do not include these in your final output.
