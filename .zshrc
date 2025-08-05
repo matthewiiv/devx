@@ -125,6 +125,13 @@ cci() {
   claude "/issues \"${prompt}\""
 }
 
+# Claude "create plan" one-liner
+ccp() {
+  # Everything you type after CCP becomes one string
+  local prompt="$*"
+  claude "/plan \"${prompt}\""
+}
+
 # Change title of current iterm
 title () { printf '\e]1;%s\a' "$*"; }
 
