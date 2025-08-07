@@ -4,6 +4,7 @@
 - If you're doing a refactor, adding types to something that doesn't have types, don't be afraid to change the APIs to work better with the newly typed code
 - When working with Typescript. Never use `as` or cast.
 - Whenever you create a PR. Ask a sub agent to review the PR. Be brutally honest.
+- Do not use union types in Typescript unless absolutely necessary
 
 When creating scripts, use the following rules:
 
