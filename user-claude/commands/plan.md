@@ -20,7 +20,13 @@ Follow these steps to complete the task:
    - Identify any potential challenges or dependencies.
    - Consider edge cases and error handling requirements.
 
-3. Create a comprehensive plan:
+3. Ask questions:
+
+   - Don't choose technologies if there options, ask the user to make the decisions
+   - Consider different options for each part of the task, get confirmation early that you're going down the right path
+   - If the user's answer doesn't give you all the answers you need, ask again
+
+4. Create a comprehensive plan:
 
    - Develop a step-by-step implementation plan.
    - Include technical details, file paths, and specific code patterns to follow.
@@ -28,14 +34,14 @@ Follow these steps to complete the task:
    - Define clear acceptance criteria.
    - Include relevant code snippets or examples where helpful.
 
-4. Structure the plan:
+5. Structure the plan:
 
    - Use clear headings and sections.
    - Include a summary at the beginning.
    - Provide detailed implementation steps.
    - Add any additional context, resources, or references.
 
-5. Save the plan:
+6. Save the plan:
 
    - Create a directory name based on the plan title (kebab-case).
    - Save the plan as plan.md in .plans/[directory-name]/.
