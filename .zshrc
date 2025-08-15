@@ -337,5 +337,4 @@ esac
 export PATH="$PATH:/Users/matthew.sharp/.local/bin"
 export PATH=$PATH:$HOME/.maestro/bin
 
-alias claude="$HOME/.claude/local/claude"
 export PATH="/opt/homebrew/bin:$PATH"
